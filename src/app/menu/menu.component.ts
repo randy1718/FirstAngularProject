@@ -18,7 +18,6 @@ export class MenuComponent implements OnInit{
 
    ngOnInit() {
     this.dishes = this.dishService.getDishes();
-    throw new Error('Method not implemented.');
   }
 
   onSelect(dish: Dish){
