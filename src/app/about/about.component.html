@@ -69,18 +69,33 @@
 
   <div fxFlex>
     <h2>Corporate Leadership</h2>
-    <mat-list *ngFor="let leader of leaders">
-      <mat-list-item>
-        <img
-          matListItemAvatar
-          height="70px"
-          src="{{ leader.image }}"
-          alt="{{ leader.name }}"
-        />
-        <span matListItemLine style="margin-bottom: -5px; color: black; font-size: 15px">{{ leader.name }} {{ leader.abbr }}</span>
-        <span matListItemLine style="margin-bottom: -5px; color: black">{{leader.designation}}</span>
-        <span matListItemLine style="margin-bottom: -5px; color: black">{{leader.description}}</span>
-      </mat-list-item>
-    </mat-list>
+    <div fxFlex *ngIf="leaders">
+      <mat-list *ngFor="let leader of leaders">
+        <mat-list-item>
+          <img
+            matListItemAvatar
+            height="70px"
+            src="{{ leader.image }}"
+            alt="{{ leader.name }}"
+          />
+          <span
+            matListItemLine
+            style="margin-bottom: -5px; color: black; font-size: 15px"
+            >{{ leader.name }} {{ leader.abbr }}</span
+          >
+          <span matListItemLine style="margin-bottom: -5px; color: black">{{
+            leader.designation
+          }}</span>
+          <span matListItemLine style="margin-bottom: -5px; color: black">{{
+            leader.description
+          }}</span>
+        </mat-list-item>
+      </mat-list>
+    </div>
+  </div>
+
+  <div [hidden]="leaders">
+    <mat-spinner></mat-spinner>
+    <h4>Loading . . . Please Wait</h4>
   </div>
 </div>
